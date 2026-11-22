@@ -1,82 +1,189 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nour Salon — Cairo | Cuts, Color &amp; Grooming</title>
-  <meta name="description" content="Nour Salon in Cairo — haircuts, colour and grooming. Walk in or book on WhatsApp.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../demo.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOIR — Barber &amp; Grooming, Cairo</title>
+<meta name="description" content="NOIR barber studio in Cairo. Sharp cuts, clean fades, proper grooming. Book on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B0B0D;--ink2:#151518;--gold:#D9B46A;--gold2:#F3DCA6;--cream:#F4EDE1;--mute:#9A9387;--line:rgba(217,180,106,.22)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--cream);font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1160px,92%);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:0;background:var(--gold);color:#000;padding:10px 16px;z-index:99}
+.skip:focus{left:10px;top:10px}
+
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.3s}
+
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:20;backdrop-filter:blur(14px);background:linear-gradient(180deg,rgba(11,11,13,.92),rgba(11,11,13,.45));border-bottom:1px solid var(--line)}
+.hi{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:30px;letter-spacing:.22em;font-weight:700}
+.logo i{color:var(--gold);font-style:normal}
+nav{display:flex;gap:32px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+nav a{position:relative;padding:6px 0;transition:color .3s}
+nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .35s}
+nav a:hover{color:var(--cream)}nav a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--gold);color:var(--gold);padding:13px 22px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;position:relative;overflow:hidden;transition:color .35s}
+.btn span{position:relative;z-index:1}
+.btn::before{content:"";position:absolute;inset:0;background:var(--gold);transform:translateY(101%);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.btn:hover{color:#0B0B0D}.btn:hover::before{transform:none}
+.btn-sm{padding:10px 17px}
+
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;padding:120px 0 80px;position:relative;isolation:isolate}
+.hero::before{content:"";position:absolute;width:60vw;height:60vw;right:-18vw;top:-12vw;background:radial-gradient(circle,rgba(217,180,106,.13),transparent 62%);animation:breathe 9s ease-in-out infinite;z-index:-1}
+.hero::after{content:"NOIR";position:absolute;right:-2vw;bottom:-5vh;font-family:'Cormorant Garamond',serif;font-size:min(30vw,340px);font-weight:700;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(217,180,106,.10);z-index:-1;animation:drift 16s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.12) translate(-2%,2%)}}
+@keyframes drift{50%{transform:translate(-3%,-2%)}}
+.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin:0 0 22px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--gold)}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(58px,7.6vw,112px);font-weight:600;line-height:.92;letter-spacing:-.02em;margin:0 0 26px}
+h1 .shine{display:block;background:linear-gradient(100deg,var(--cream) 20%,var(--gold2) 42%,var(--cream) 62%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5.5s linear infinite}
+@keyframes shine{to{background-position:-220% 0}}
+h1 em{font-style:italic;color:var(--gold)}
+.lede{color:#BDB5A8;max-width:470px;font-size:16px;line-height:1.75;margin:0 0 34px}
+.actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.stats{display:flex;gap:34px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line)}
+.stats div{display:flex;flex-direction:column;gap:5px}
+.stats strong{font-family:'Cormorant Garamond',serif;font-size:29px;color:var(--gold);line-height:1}
+.stats small{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.art{position:relative;aspect-ratio:4/5;display:grid;place-items:center}
+.art .frame{position:absolute;inset:5% 8% 5% 4%;border:1px solid var(--line);transform:rotate(3deg);animation:sway 11s ease-in-out infinite}
+.art .frame2{position:absolute;inset:11% 2% 11% 12%;border:1px solid rgba(217,180,106,.1);transform:rotate(-4deg)}
+@keyframes sway{50%{transform:rotate(-2deg)}}
+.orb{width:74%;aspect-ratio:1;border-radius:50%;background:conic-gradient(from 210deg,#2A2118,#7A5C2E,#D9B46A,#3A2C1D,#2A2118);filter:blur(1px);box-shadow:0 0 90px rgba(217,180,106,.22),inset 0 0 60px rgba(0,0,0,.65);animation:spin 26s linear infinite}
+.orb::after{content:"";position:absolute;inset:14%;border-radius:50%;border:1px solid rgba(244,237,225,.18)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.monogram{position:absolute;font-family:'Cormorant Garamond',serif;font-size:clamp(70px,9vw,140px);letter-spacing:.06em;color:var(--cream);text-shadow:0 10px 40px rgba(0,0,0,.6)}
+.seal{position:absolute;right:-6px;bottom:8%;width:126px;height:126px;border-radius:50%;background:var(--gold);color:#14100A;display:grid;place-items:center;text-align:center;font-size:10px;letter-spacing:.16em;text-transform:uppercase;line-height:1.5;font-weight:700;box-shadow:0 18px 40px rgba(0,0,0,.5);animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+
+/* marquee */
+.strip{border-block:1px solid var(--line);background:var(--ink2);overflow:hidden;padding:19px 0}
+.track{display:flex;gap:46px;white-space:nowrap;width:max-content;animation:slide 22s linear infinite}
+.track span{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
+.track i{color:var(--mute);font-style:normal}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:110px 0}
+.shead{margin-bottom:56px;max-width:640px}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,5.4vw,72px);line-height:1;letter-spacing:-.01em;margin:0 0 18px;font-weight:600}
+.shead p{color:var(--mute);line-height:1.8;margin:0}
+.menu{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:70px 1fr auto;gap:24px;align-items:center;padding:30px 8px;border-bottom:1px solid var(--line);transition:background .35s,padding .35s}
+.row:hover{background:linear-gradient(90deg,rgba(217,180,106,.07),transparent);padding-left:20px}
+.row .num{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold);opacity:.75}
+.row h3{font-family:'Cormorant Garamond',serif;font-size:31px;font-weight:600;margin:0 0 5px}
+.row p{color:var(--mute);font-size:14px;margin:0}
+.row .price{font-family:'Cormorant Garamond',serif;font-size:27px;color:var(--gold2)}
+.quote-wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+blockquote{margin:0;font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.7vw,52px);line-height:1.18;font-style:italic}
+blockquote::before{content:"“";color:var(--gold);font-size:90px;line-height:0;vertical-align:-.35em;margin-right:6px}
+.by{color:var(--gold);font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-top:26px}
+.pillars{display:grid;gap:16px}
+.pillar{border:1px solid var(--line);padding:26px;display:flex;gap:20px;align-items:flex-start;transition:transform .35s,border-color .35s}
+.pillar:hover{transform:translateX(8px);border-color:var(--gold)}
+.pillar svg{flex:0 0 28px;stroke:var(--gold)}
+.pillar h4{margin:0 0 6px;font-family:'Cormorant Garamond',serif;font-size:23px}
+.pillar p{margin:0;color:var(--mute);font-size:14px;line-height:1.7}
+.visit{background:var(--ink2)}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{border:1px solid var(--line);padding:32px;background:rgba(255,255,255,.015);transition:transform .4s,background .4s}
+.card:hover{transform:translateY(-8px);background:rgba(217,180,106,.05)}
+.card small{color:var(--gold);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.card h4{font-family:'Cormorant Garamond',serif;font-size:26px;margin:14px 0 10px;font-weight:600}
+.card p{color:var(--mute);line-height:1.8;margin:0;font-size:14px}
+.card a:hover{color:var(--gold)}
+.cta{position:relative;text-align:center;padding:120px 0;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(217,180,106,.10) 50%,transparent 70%);background-size:250% 100%;animation:shine 7s linear infinite}
+.cta>*{position:relative}
+.cta h2{font-size:clamp(46px,6vw,86px)}
+.cta p{color:var(--mute);margin:0 0 32px}
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-size:12px;letter-spacing:.06em}
+.fin{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:860px){nav{display:none}.grid,.quote-wrap{grid-template-columns:1fr}.art{order:-1;aspect-ratio:1.2;width:min(100%,420px);margin-inline:auto}.stats{gap:22px;flex-wrap:wrap}.cards3{grid-template-columns:1fr}.row{grid-template-columns:42px 1fr auto;gap:12px}.row h3{font-size:25px}.seal{width:96px;height:96px;font-size:8px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="logo" href="#top">Nour <span>Salon</span></a>
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#visit">Visit us</a>
-      </nav>
-      <a class="btn btn-sm" href="https://wa.me/201000000000" target="_blank" rel="noopener">Book on WhatsApp</a>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="wrap hi">
+  <a class="logo" href="#top">NOIR<i>.</i></a>
+  <nav aria-label="Main"><a href="#menu">The menu</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></nav>
+  <a class="btn btn-sm" href="https://wa.me/201000000000" target="_blank" rel="noopener"><span>Book a chair</span></a>
+</div></header>
+
+<main id="main">
+<section class="hero" id="top"><div class="wrap grid">
+  <div>
+    <p class="eyebrow rv">Cairo · Barber &amp; grooming studio</p>
+    <h1 class="rv d1">Sharp cuts.<br><span class="shine">Clean vibes.</span><br><em>No shortcuts.</em></h1>
+    <p class="lede rv d2">A calm, properly lit studio in the heart of Cairo. Fades, beard work and grooming done with care — no rush, no guesswork.</p>
+    <div class="actions rv d3">
+      <a class="btn" href="https://wa.me/201000000000" target="_blank" rel="noopener"><span>Book on WhatsApp</span></a>
+      <a class="btn" href="tel:+201000000000"><span>Call the studio</span></a>
     </div>
-  </header>
+    <div class="stats rv d3">
+      <div><strong>4.9★</strong><small>200+ happy clients</small></div>
+      <div><strong>10 min</strong><small>From Talaat Harb</small></div>
+      <div><strong>7 days</strong><small>Open every day</small></div>
+    </div>
+  </div>
+  <div class="art rv d2" aria-hidden="true">
+    <div class="frame"></div><div class="frame2"></div><div class="orb"></div>
+    <div class="monogram">N</div>
+    <div class="seal">Book<br>your<br>chair</div>
+  </div>
+</div></section>
 
-  <main id="main">
-    <section class="hero" id="top">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="eyebrow">Cairo · Barber &amp; hair studio</p>
-          <h1>Look sharp. Walk out confident.</h1>
-          <p class="lede">Cuts, colour and grooming done properly — in a calm, clean space in the heart of Cairo. No waiting, no guesswork.</p>
-          <div class="actions">
-            <a class="btn" href="tel:+201000000000">Call now</a>
-            <a class="btn btn-outline" href="https://wa.me/201000000000" target="_blank" rel="noopener">Book on WhatsApp</a>
-          </div>
-          <div class="trust"><span><strong>4.9★</strong> from 200+ clients</span><span><strong>10 min</strong> from the metro</span><span><strong>Open</strong> every day</span></div>
-        </div>
-        <div class="hero-photo" style="background:#7C2D4E" role="img" aria-label="Salon interior placeholder image">NOUR</div>
-      </div>
-    </section>
+<div class="strip" aria-hidden="true"><div class="track">
+  <span>Fades <i>✦</i> Beard sculpting <i>✦</i> Hot towel <i>✦</i> Skin fade <i>✦</i> Grooming <i>✦</i></span>
+  <span>Fades <i>✦</i> Beard sculpting <i>✦</i> Hot towel <i>✦</i> Skin fade <i>✦</i> Grooming <i>✦</i></span>
+</div></div>
 
-    <section class="section section-white" id="services">
-      <div class="wrap">
-        <div class="section-head"><p class="eyebrow">What we do</p><h2>Simple menu. Fair prices.</h2><p>Every service includes a wash, a proper consultation and finish.</p></div>
-        <div class="cards">
-          <div class="card"><h3>Haircut &amp; style</h3><p>Cut, wash and finish. For men, women and kids.</p><p class="card-price">From E£ 150</p></div>
-          <div class="card"><h3>Colour &amp; highlights</h3><p>Professional colour with a patch test and aftercare advice.</p><p class="card-price">From E£ 450</p></div>
-          <div class="card"><h3>Beard &amp; grooming</h3><p>Shape, hot towel, oils and a clean finish.</p><p class="card-price">From E£ 100</p></div>
-        </div>
-      </div>
-    </section>
+<section id="menu"><div class="wrap">
+  <div class="shead rv"><p class="eyebrow">The menu</p><h2>Simple. Proper. Priced fairly.</h2><p>Every visit includes a consultation, a wash and the finish you actually asked for.</p></div>
+  <div class="menu">
+    <div class="row rv"><span class="num">01</span><div><h3>The Signature Cut</h3><p>Scissors or clippers, wash, style and a proper finish.</p></div><span class="price">E£ 150</span></div>
+    <div class="row rv"><span class="num">02</span><div><h3>Skin Fade</h3><p>Sharp blend, clean hairline, finished with tonic.</p></div><span class="price">E£ 170</span></div>
+    <div class="row rv"><span class="num">03</span><div><h3>Beard Sculpt</h3><p>Shape, hot towel, oils and a straight-razor edge.</p></div><span class="price">E£ 100</span></div>
+    <div class="row rv"><span class="num">04</span><div><h3>The Full Ritual</h3><p>Cut, beard, wash, hot towel and a scalp massage.</p></div><span class="price">E£ 260</span></div>
+  </div>
+</div></section>
 
-    <section class="section" id="reviews">
-      <div class="wrap split">
-        <div>
-          <p class="eyebrow">Real clients</p>
-          <h2>People keep coming back.</h2>
-          <p class="quote">"Best cut I've had in Cairo. They actually listened, and the place is spotless."</p>
-          <p class="who">— Ahmed R., client since 2023</p>
-        </div>
-        <div class="info-grid">
-          <div class="info-card"><p class="stars" aria-label="5 out of 5 stars">★★★★★</p><h3>On time</h3><p>Appointments respected, no long waits.</p></div>
-          <div class="info-card"><p class="stars" aria-label="5 out of 5 stars">★★★★★</p><h3>Clean space</h3><p>Tools sterilised after every client.</p></div>
-        </div>
-      </div>
-    </section>
+<section id="reviews" style="background:var(--ink2)"><div class="wrap quote-wrap">
+  <div class="rv"><p class="eyebrow">Real clients</p><blockquote>Best fade I've had in Cairo. They actually listened, and the place is spotless.</blockquote><p class="by">— Ahmed R., client since 2023</p></div>
+  <div class="pillars">
+    <div class="pillar rv d1"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg><div><h4>On time, every time</h4><p>Your slot is yours. No waiting around for the chair.</p></div></div>
+    <div class="pillar rv d2"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><div><h4>Clean, always</h4><p>Tools sterilised between every single client.</p></div></div>
+    <div class="pillar rv d3"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="6"/></svg><div><h4>Right in the centre</h4><p>Two minutes from Talaat Harb metro station.</p></div></div>
+  </div>
+</div></section>
 
-    <section class="section section-white" id="visit">
-      <div class="wrap info-grid">
-        <div class="info-card"><h3>Find us</h3><p>12 Talaat Harb Street, Cairo<br>2 min from Talaat Harb metro</p></div>
-        <div class="info-card"><h3>Opening hours</h3><p>Sat–Thu: 10am–9pm<br>Fri: 2pm–10pm</p></div>
-        <div class="info-card"><h3>Contact</h3><p><a href="tel:+201000000000">+20 100 000 0000</a><br><a href="https://wa.me/201000000000" target="_blank" rel="noopener">WhatsApp us</a></p></div>
-      </div>
-    </section>
+<section class="visit" id="visit"><div class="wrap"><div class="shead rv"><p class="eyebrow">Find us</p><h2>Walk in. Walk out sharp.</h2></div><div class="cards3">
+  <div class="card rv d1"><small>Address</small><h4>12 Talaat Harb St.</h4><p>Cairo, Egypt · 2 min from the metro, stairs and elevator access.</p></div>
+  <div class="card rv d2"><small>Opening hours</small><h4>Every day</h4><p>Sat–Thu: 10am – 9pm<br>Fri: 2pm – 10pm</p></div>
+  <div class="card rv d3"><small>Contact</small><h4>+20 100 000 0000</h4><p><a href="https://wa.me/201000000000" target="_blank" rel="noopener">Message on WhatsApp</a> · walk-ins welcome.</p></div>
+</div></div></section>
 
-    <section class="section band">
-      <div class="wrap"><h2>Ready for a better cut?</h2><p>Send a WhatsApp message and we'll find a time that works.</p><a class="btn" href="https://wa.me/201000000000" target="_blank" rel="noopener">Book on WhatsApp</a></div>
-    </section>
-  </main>
-  <footer class="site-footer"><div class="wrap footer-inner"><p>Nour Salon · Cairo</p><p>Concept demo by FrontDoor — not a real business.</p></div></footer>
+<section class="cta"><div class="wrap rv"><p class="eyebrow">Your chair is waiting</p><h2>Look like you mean it.</h2><p>Send one message and we'll find a time that works.</p><a class="btn" href="https://wa.me/201000000000" target="_blank" rel="noopener"><span>Book on WhatsApp</span></a></div></section>
+</main>
+<footer><div class="wrap fin"><span>NOIR · Cairo</span><span>Concept demo by FrontDoor — not a real business.</span></div></footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>

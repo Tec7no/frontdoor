@@ -39,16 +39,16 @@
     <section class="hero">
       <div class="wrap hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow">Websites for local businesses in Cairo</p>
-          <h1>Your next customer is searching.<br>Let them find <em>you.</em></h1>
-          <p class="lede">I build clean, fast, mobile-first websites for salons, gyms, clinics and local services — in 5 business days, without agency prices.</p>
-          <div class="hero-actions">
+          <p class="eyebrow rv">Websites for local businesses in Cairo</p>
+          <h1 class="rv d1">Your next customer is searching.<br>Let them find <em>you.</em></h1>
+          <p class="lede rv d2">I build clean, fast, mobile-first websites for salons, gyms, clinics and local services — in 5 business days, without agency prices.</p>
+          <div class="hero-actions rv d3">
             <a class="btn" href="#contact">Get my free audit</a>
             <a class="btn btn-ghost" href="#work">See sample sites</a>
           </div>
-          <p class="micro">First 3 clients: <strong>10,700 EGP</strong> launch price · No long-term contract</p>
+          <p class="micro rv d3">First 3 clients: <strong>10,700 EGP</strong> launch price · No long-term contract</p>
         </div>
-        <div class="hero-panel" aria-hidden="true">
+        <div class="hero-panel rv d2" aria-hidden="true">
           <div class="mock-window">
             <div class="mock-bar"><span></span><span></span><span></span></div>
             <div class="mock-body">
@@ -67,33 +67,33 @@
 
     <section class="section" id="work" aria-labelledby="work-title">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head rv">
           <p class="eyebrow">Sample work</p>
-          <h2 id="work-title">Three examples. Same simple approach.</h2>
-          <p>Concept sites built to show what's possible. Each one is mobile-ready, fast, and built around one goal: getting the phone to ring.</p>
+          <h2 id="work-title">Three businesses. Three completely different builds.</h2>
+          <p>Not one template with the text swapped. Each concept has its own visual identity, typography and motion — built mobile-first, fast, and around one goal: getting the phone to ring.</p>
         </div>
         <div class="work-grid">
-          <a class="work-card" href="demos/salon/index.html">
+          <a class="work-card rv d1" href="demos/salon/index.html">
             <div class="work-thumb thumb-salon"><span>Salon</span></div>
             <div class="work-meta">
               <h3>Barbershop &amp; salon</h3>
-              <p>Services, prices, reviews, click-to-call.</p>
+              <p>Dark editorial luxury, gold accents, animated monogram.</p>
               <span class="link-label">View demo <span aria-hidden="true">→</span></span>
             </div>
           </a>
-          <a class="work-card" href="demos/gym/index.html">
+          <a class="work-card rv d2" href="demos/gym/index.html">
             <div class="work-thumb thumb-gym"><span>Gym</span></div>
             <div class="work-meta">
               <h3>Gym &amp; fitness studio</h3>
-              <p>Classes, schedule, membership CTA.</p>
+              <p>High-energy neon, moving stripes, live stat bars.</p>
               <span class="link-label">View demo <span aria-hidden="true">→</span></span>
             </div>
           </a>
-          <a class="work-card" href="demos/clinic/index.html">
+          <a class="work-card rv d3" href="demos/clinic/index.html">
             <div class="work-thumb thumb-clinic"><span>Clinic</span></div>
             <div class="work-meta">
               <h3>Dental clinic</h3>
-              <p>Trust signals, doctors, booking links.</p>
+              <p>Calm clinical mint, floating cards, rotating testimonials.</p>
               <span class="link-label">View demo <span aria-hidden="true">→</span></span>
             </div>
           </a>
@@ -185,5 +185,11 @@
       <p>Sample concepts shown for demonstration. Not live client sites.</p>
     </div>
   </footer>
+  <script>
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: .12 });
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  </script>
 </body>
 </html>

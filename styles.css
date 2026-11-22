@@ -152,3 +152,25 @@ img, svg { max-width: 100%; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* --- FrontDoor motion layer --- */
+.rv { opacity: 0; transform: translateY(22px); transition: opacity .75s cubic-bezier(.2,.7,.2,1), transform .75s cubic-bezier(.2,.7,.2,1); }
+.rv.in { opacity: 1; transform: none; }
+.rv.d1 { transition-delay: .08s; }
+.rv.d2 { transition-delay: .16s; }
+.work-thumb { position: relative; overflow: hidden; }
+.work-thumb::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.28) 50%, transparent 70%); background-size: 250% 100%; transform: translateX(-100%); transition: transform .8s ease; }
+.work-card:hover .work-thumb::after { transform: translateX(100%); }
+.work-card { transition: transform .35s ease, box-shadow .35s ease; }
+.work-card:hover { transform: translateY(-6px); box-shadow: 0 22px 45px rgba(15,23,42,.14); }
+.mock-window { animation: floaty 6s ease-in-out infinite; }
+.badge { animation: bob 4.5s ease-in-out infinite; }
+@keyframes floaty { 50% { transform: translateY(-10px) rotate(.6deg); } }
+@keyframes bob { 50% { transform: translateY(-8px); } }
+.mock-cta { position: relative; overflow: hidden; }
+.mock-cta::after { content: ""; position: absolute; top: 0; left: -60%; width: 35%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.65), transparent); transform: skewX(-22deg); animation: sheen 3.4s ease-in-out infinite; }
+@keyframes sheen { 0%, 55% { left: -60%; } 85%, 100% { left: 130%; } }
+@media (prefers-reduced-motion: reduce) {
+  .rv { opacity: 1 !important; transform: none !important; }
+  .mock-window, .badge, .mock-cta::after { animation: none !important; }
+}
